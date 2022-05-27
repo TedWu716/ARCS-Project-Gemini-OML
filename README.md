@@ -1,8 +1,8 @@
 # ARCS-LSAM-CSUN-openCAESAR  
 ## Implementing [openCAESAR](https://github.com/opencaesar) to create an ontology  
 ```
-git clone  https://github.com/RuitaoWu/ARCS-LSAM-CSUN-openCAESAR.git  
-cd ARCS-LSAM-CSUN-openCAESAR
+git clone https://github.com/TedWu716/ARCS-Project-Gemini-OML.git
+cd ARCS-Project-Gemini-OM
 gradle build  
 ``` 
 ### only support JDK 11  
