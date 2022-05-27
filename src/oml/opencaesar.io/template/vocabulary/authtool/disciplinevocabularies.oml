@@ -1,0 +1,380 @@
+//@dc:title "Discipline Vocabularies"
+vocabulary <http://opencaesar.io/template/vocabulary/authtool/disciplinevocabularies#> as disciplinevocabularies{
+   
+//    extends <http://imce.jpl.nasa.gov/foundation/project#>  as project
+//    extends <http://imce.jpl.nasa.gov/foundation/base#> as base
+//    extends <http://imce.jpl.nasa.gov/foundation/mission#> as mission
+//    extends <http://imce.jpl.nasa.gov/foundation/analysis#> as analysis
+    
+    //start point
+    concept MountingBracket
+    relation entity R2[
+        from MountingBracket
+        to GenerativeDesignOptimization
+        forward r2
+    ]
+     relation entity R3[
+        from MountingBracket
+        to TopologyOptimization
+        forward r3
+    ]
+     relation entity R4[
+        from MountingBracket
+        to ThermalAnalysis
+        forward r4
+    ]
+//    @dc:title "Generative Design Optimization"
+    concept GenerativeDesignOptimization :> MountingBracket
+    concept StaticLoad
+    concept Fixtures
+    concept RepresentativeLoad
+    concept Geometry
+    concept Ti6a4v
+    concept Al6061
+    concept Method
+    concept MinimizeMass
+    concept MaximizeStiffness
+    concept Inspection
+    //Generative Design Optimization Property
+//    scalar property Dir[
+//        domain RepresentativeLoad
+//        range xsd:string
+//    ]
+//    scalar property Magn[
+//        domain RepresentativeLoad
+//        range xsd:int
+//    ]
+//    scalar property Magnitude[
+//        domain StaticLoad
+//        range xsd:int
+//    ]
+//    scalar property Direction[
+//        domain StaticLoad
+//        range xsd:string
+//    ]
+//    scalar property DegreeOfFreedom[
+//        domain Fixtures
+//        range xsd:string
+//    ]
+//    scalar property Obstacle[
+//        domain Geometry
+//        range xsd:string
+//    ]
+//    scalar property Preserve[
+//        domain Geometry
+//        range xsd:string
+//    ]
+//    scalar property OptimizedSpace[
+//        domain Geometry
+//        range xsd:string
+//    ]
+//    scalar property Yield[
+//        domain Ti6a4v
+//        range  xsd:string
+//    ]
+//    scalar property Ultimate[
+//        domain Ti6a4v
+//        range xsd:string
+//    ]
+//    scalar property YoungModulus[
+//        domain Ti6a4v
+//        range xsd:string
+//    ]
+//    scalar property PoissonRatio[
+//        domain Ti6a4v
+//        range xsd:float
+//    ]
+//    scalar property Density[
+//        domain Ti6a4v
+//        range xsd:int
+//    ]
+//    scalar property ThermalConductivity6a4v[
+//        domain Ti6a4v
+//        range xsd:string
+//    ]
+//    scalar property ThermalDiffusivity6a4v[
+//        domain Ti6a4v
+//        range  xsd:string
+//    ]
+//     scalar property YoungModulus6061[
+//        domain Al6061
+//        range xsd:string
+//    ]
+//    scalar property PoissonRatio6061[
+//        domain Al6061
+//        range xsd:float
+//    ]
+//    scalar property Density6061[
+//        domain Al6061
+//        range xsd:int
+//    ]
+//    scalar property ThermalConductivity6061[
+//        domain Al6061
+//        range xsd:string
+//    ]
+//    scalar property ThermalDiffusivity6061[
+//        domain Al6061
+//        range  xsd:string
+//    ]
+//    scalar property AdditiveManufacturing[
+//        domain Method
+//        range xsd:string
+//    ]
+//    scalar property MinMassLimit[
+//        domain MinimizeMass
+//        range xsd:string
+//    ]
+//    scalar property MaxStifnessLimit[
+//        domain MaximizeStiffness
+//        range xsd:string
+//    ]
+//    scalar property MaxStifnessMassTarget[
+//        domain MaximizeStiffness
+//        range xsd:string
+//    ]
+//    scalar property Roughness[
+//        domain Inspection
+//        range xsd:string
+//    ]
+//    scalar property Tolerance[
+//        domain Inspection
+//        range xsd:string
+//    ]
+//    //topology property
+//    scalar property Envir[
+//        domain Geometry
+//        range xsd:string
+//    ]
+    //Generative Design Optimization relation
+    relation entity BoundaryConditions[
+        from GenerativeDesignOptimization
+        to StaticLoad
+        forward boundaryconditions
+    ]
+    relation entity BoundaryConditionsFixtures[
+        from GenerativeDesignOptimization
+        to Fixtures
+        forward boundaryConditionsFixtures
+    ]
+    relation entity BoundaryCondRepresentative[
+        from disciplinevocabularies:GenerativeDesignOptimization
+        to RepresentativeLoad
+        forward boundaryCondRepresentative
+    ]
+    relation entity Body[
+        from GenerativeDesignOptimization
+        to Geometry
+        forward body
+    ]
+    relation entity Material[
+        from GenerativeDesignOptimization
+        to Ti6a4v
+        forward material
+    ]
+    relation entity MaterialAl6061[
+        from GenerativeDesignOptimization
+        to Al6061
+        forward materialAl6061
+    ]
+    relation entity Manufacturing[
+        from GenerativeDesignOptimization
+        to Method
+        forward manufacturing
+    ]
+    relation entity ManufacturingInspection[
+        from GenerativeDesignOptimization
+        to Inspection
+        forward manufacturingInspection
+    ]
+    relation entity Objective[
+        from GenerativeDesignOptimization
+        to MinimizeMass
+        forward objective
+    ]
+    relation entity ObjectiveMaxStiffness[
+        from GenerativeDesignOptimization
+        to MaximizeStiffness
+        forward objectiveMaxStiffness
+    ]
+    /*****************************************************************************************************/
+    /**********************************separate line*****************************************************/
+//    @dc:title "Mounting Bracket"
+    concept ThermalAnalysis :> MountingBracket
+    concept ThermalLoads
+    concept ThermoelasticPointingDev
+    concept HeatLoss
+    //Mounting Bracket Property
+//    scalar property TrackerTemp[
+//        domain ThermalLoads
+//        range xsd:float
+//    ]
+//    scalar property MountsTemp[
+//        domain ThermalLoads
+//        range xsd:float
+//    ]
+//    scalar property CenterlinePosi[
+//        domain ThermoelasticPointingDev
+//        range xsd:string
+//    ]
+//    scalar property HeatTransThroughMounts[
+//        domain HeatLoss
+//        range xsd:string
+//    ]
+    //Mounting Bracket Relation
+    relation entity LoadingCond[
+        from ThermalAnalysis
+        to ThermalLoads
+        forward loadingCond
+    ]
+    relation entity DesignReq[
+        from ThermalAnalysis
+        to ThermoelasticPointingDev
+        forward designReq
+    ]
+    relation entity DesignReqHeatLoss[
+        from ThermalAnalysis
+        to HeatLoss
+        forward designReqHeatLoss
+    ]
+
+    /*****************************************************************************************************/
+    /**********************************separate line*****************************************************/
+//    @dc:title "Topology Optimization"
+    concept TopologyOptimization :> MountingBracket
+    concept Gravity
+    concept FrequencyConstraint
+    concept Load 
+    concept MaxFrequency
+    concept TopoMaxStiffness
+    concept TopoMinMass
+    concept TopoFixture
+    //Topology Optimization Property
+//    scalar property Status[
+//        domain Gravity
+//        range xsd:boolean
+//    ]
+//    scalar property Hz[
+//        domain FrequencyConstraint
+//        range xsd:float
+//    ]
+//    scalar property LoadDir[
+//    	domain Load
+//    	range xsd:string
+//    ]
+//    scalar property LoadMagnitude[
+//    	domain Load
+//    	range xsd:int 
+//    ]
+//    scalar property PercentTotalVolum[
+//    	domain TopoMaxStiffness
+//    	range xsd:float
+//    ]
+//    scalar property Safety[
+//    	domain TopoMinMass
+//    	range xsd:string
+//    ]
+//    scalar property DegreesOfFredom[
+//        domain TopoFixture
+//        range xsd:string
+//    ]
+    //Topology Optimization Relation
+    relation entity TopoLoadCon[
+    	from TopologyOptimization
+        to Load
+        forward topoLoadCon
+    ]
+    
+    relation entity Force[
+        from TopologyOptimization
+        to Gravity
+        forward force
+    ]
+    relation entity R1[
+        from TopologyOptimization
+        to FrequencyConstraint
+        forward r1
+    ]
+    relation entity TopoObjectiveFreq[
+    	from TopologyOptimization
+    	to MaxFrequency
+    	forward topoobjectivefreq
+    ]
+    relation entity TopoStiffness[
+    	from TopologyOptimization
+    	to TopoMaxStiffness
+    	forward topostiffness
+    ]
+    relation entity TopoMass[
+    	from TopologyOptimization
+    	to TopoMinMass
+    	forward topominmass
+    ]
+    relation entity BoundaryCond[
+        from Fixtures
+        to TopologyOptimization
+        forward boundaryCond
+    ]
+     /*****************************************************************************************************/
+    /**********************************separate line*****************************************************/
+    // general requirement
+    concept GeneralRequirement
+    concept MinPointDiv
+    concept MinMemberSiz
+    concept OverallThermalLoss
+    concept StrucYield
+    concept StruBuckle
+    concept BaseInterfaceSlippage
+    concept FoundamentalFrequency
+    concept InstrumentSlippage
+    //property
+//    scalar property LimitFactorSafetyDiv[
+//        domain MinPointDiv
+//        range xsd:string
+//    ]
+//    scalar property LimitFactorSafetySize[
+//        domain MinMemberSiz
+//        range xsd:string
+//    ]
+    //relation
+    relation entity StructuralYield[
+        from GeneralRequirement
+        to StrucYield
+        forward structuralyield
+    ]
+    relation entity StructuralBuckle[
+        from GeneralRequirement
+        to StruBuckle
+        forward structuralbuckle
+    ]
+    relation entity BaseInterface[
+        from GeneralRequirement
+        to BaseInterfaceSlippage
+        forward baseinterface
+    ]
+    relation entity FoundmentalFre[
+        from GeneralRequirement
+        to FoundamentalFrequency
+        forward entryfrequency
+    ]
+    relation entity InstruSlippage[
+        from GeneralRequirement
+        to InstrumentSlippage
+        forward instruslippage
+    ]
+    relation entity MinObjective[
+        from GeneralRequirement
+        to MinPointDiv
+        forward minobjective
+    ]
+    relation entity MinMemberObjective[
+        from GeneralRequirement
+        to MinMemberSiz
+        forward minosizebjective
+    ]
+    relation entity ObjectiveOverallLoss[
+        from GeneralRequirement
+        to OverallThermalLoss
+        forward objectiveoverallheatloss
+    ]
+    
+}

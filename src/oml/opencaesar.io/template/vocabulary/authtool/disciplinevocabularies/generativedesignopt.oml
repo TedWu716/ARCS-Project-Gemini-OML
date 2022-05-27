@@ -1,0 +1,98 @@
+vocabulary <http://opencaesar.io/template/vocabulary/authtool/disciplinevocabularies/generativedesignopt#> as generativedesignopt{
+//    extends <http://imce.jpl.nasa.gov/foundation/project>
+//    extends <http://imce.jpl.nasa.gov/foundation/base>
+//    extends <http://imce.jpl.nasa.gov/foundation/mission>
+//    extends <http://imce.jpl.nasa.gov/foundation/analysis>
+//    @dc:title "Generative Design Optimization"
+    concept PreserveGeometry
+    concept ObstacleGeometry
+    concept ObstacleOffset
+    concept StartingShape
+    concept UnassignedGeometry
+    concept Body :> UnassignedGeometry
+    concept Objectives
+    concept MinimizeMass :> Objectives
+    concept Limits :> Objectives
+    concept TargetSafetyFactor :> Limits
+    concept Manufacturing
+    concept Unrestricted :> Manufacturing
+    concept Additive :> Manufacturing
+    concept Milling :> Manufacturing
+    concept LoadCase
+    concept Loads :> LoadCase
+    concept Gravity :> Loads
+    concept Constraints :> LoadCase
+    enumerated scalar SafetyFactor[
+    	2.0
+    ]
+    enumerated scalar Visiblity[
+    	"yes",
+    	"no"
+    ]
+    enumerated scalar Status[
+    	"on",
+    	"off"
+    ]
+    enumerated scalar Materials[
+    	"Aluminum AlSi10Mg",
+    	"CobaltChrome",
+    	"Inconel625",
+  		"Inconel718",
+  		"Inconel718Plus",
+  		"StainlessSteel17-4PH",
+  		"StainlessSteelAISI304",
+  		"Tianium6Al-4V"
+    ]
+    scalar property LoadCaseStatus[
+    	domain LoadCase
+    	range Status
+    ]
+    scalar property LoadStatus[
+    	domain Loads
+    	range Status
+    ]
+    scalar property GravityStatus[
+    	domain Gravity
+    	range Status
+    ]
+    scalar property ConstraintsStatus[
+    	domain Constraints
+    	range Status
+    ]
+    scalar property UnrestrictedMatrial[
+    	domain Unrestricted
+    	range Materials
+    ]
+    scalar property AdditivedMatrial[
+    	domain Additive
+    	range Materials
+    ]
+    scalar property MillingMatrial[
+    	domain Milling
+    	range Materials
+    ]
+    scalar property isTargetSafetyFactor[
+    	domain TargetSafetyFactor
+    	range SafetyFactor
+    ]
+    scalar property isVisiblePreserveGeo[
+    	domain PreserveGeometry
+    	range Visiblity
+    ]
+    scalar property isVisibleObstacleGeo[
+    	domain ObstacleGeometry
+    	range Visiblity
+    ]
+    scalar property isVisibleObstacleOffset[
+    	domain ObstacleOffset
+    	range Visiblity
+    ]
+    scalar property isVisibleStartingShape[
+    	domain StartingShape
+    	range Visiblity
+    ]
+    scalar property isVisibleUnassignedGeometry[
+    	domain UnassignedGeometry
+    	range Visiblity
+    ]
+}
