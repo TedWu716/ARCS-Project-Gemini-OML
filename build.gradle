@@ -22,9 +22,9 @@ buildscript {
         classpath 'io.opencaesar.owl:owl-query-gradle:+'
         classpath 'io.opencaesar.owl:owl-load-gradle:+'
         classpath 'io.opencaesar.owl:owl-reason-gradle:+'
-        classpath 'io.opencaesar.oml:oml-bikeshed-gradle:0.9.+'
-        classpath 'io.opencaesar.oml:oml-merge-gradle:0.9.+'
-        classpath 'io.opencaesar.adapters:oml2owl-gradle:0.9.+'
+        classpath 'io.opencaesar.oml:oml-bikeshed-gradle:1.+'
+        classpath 'io.opencaesar.oml:oml-merge-gradle:1.+'
+        classpath 'io.opencaesar.adapters:oml2owl-gradle:1.+'
     }
 }
 
@@ -33,7 +33,8 @@ ext.dataset = [
     // Name of dataset (matches one used in .fuseki.ttl file)
     name: 'oml-template',
     // Root ontology IRI of the dataset
-    rootOntologyIri: 'http://opencaesar.io/template/description/bundle',
+    rootOntologyIri: 'http://opencaesar.io/template/description/bundle', 
+    rootOntologyIri: 'http://opencaesar.io/template/vocabulary/bundle',
     // URL for publishing dataset documentation
     publishUrl: 'https://opencaesar.github.io/oml-template'
 ]
@@ -57,15 +58,13 @@ configurations {
  * Dependency versions
  */
 ext { 
-    coreVersion = '2.+'
-    imceVersion = '2.+'
+    imceVersion = '3.+'
 }
 
 /*
  * The OML dependencies
  */
 dependencies {
-    oml "io.opencaesar.ontologies:core-vocabularies:$coreVersion"
     oml "io.opencaesar.ontologies:imce-vocabularies:$imceVersion"
 }
 

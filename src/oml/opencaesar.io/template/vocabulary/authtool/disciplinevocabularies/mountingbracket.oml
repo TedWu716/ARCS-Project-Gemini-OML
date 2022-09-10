@@ -2,7 +2,13 @@ vocabulary <http://opencaesar.io/template/vocabulary/authtool/disciplinevocabula
     extends <http://opencaesar.io/template/vocabulary/authtool/disciplinevocabularies/generativedesignopt#>
     extends <http://opencaesar.io/template/vocabulary/authtool/disciplinevocabularies/thermalanalysis#>
     extends <http://opencaesar.io/template/vocabulary/authtool/disciplinevocabularies/topologyopt#>
-    concept MountingBracket
+
+	extends <http://opencaesar.io/template/vocabulary/authtool/foundationvocabularies#> as foundationvocabularies
+
+	extends <http://www.w3.org/2000/01/rdf-schema#> as rdfs
+    
+   @rdfs:label "Mounting Bracket"
+    concept MountingBracket :> foundationvocabularies:Assembly
     
     
 }

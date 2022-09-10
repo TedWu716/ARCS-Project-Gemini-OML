@@ -1,60 +1,76 @@
 vocabulary <http://opencaesar.io/template/vocabulary/authtool/disciplinevocabularies/thermalanalysis#> as thermalanalysis{
-//    extends <http://imce.jpl.nasa.gov/foundation/project>
-//    extends <http://imce.jpl.nasa.gov/foundation/base>
-//    extends <http://imce.jpl.nasa.gov/foundation/mission>
-//    extends <http://imce.jpl.nasa.gov/foundation/analysis>
-   // extends <http://purl.org/dc/elements/1.1/> as dc
-	
-	//extends <http://www.w3.org/2002/07/owl#>
-    aspect ThermalAnalysis
+//	extends <http://imce.jpl.nasa.gov/foundation/project>
+//	extends <http://imce.jpl.nasa.gov/foundation/base>
+//	extends <http://imce.jpl.nasa.gov/foundation/mission>
+//	extends <http://imce.jpl.nasa.gov/foundation/analysis>
+//	extends <http://purl.org/dc/elements/1.1/> as dc 
+//	extends <http://www.w3.org/2002/07/owl#>
+    extends <http://opencaesar.io/template/vocabulary/authtool/foundationvocabularies#> as foundationvocabularies
+
+	extends <http://www.w3.org/2000/01/rdf-schema#> as rdfs
+	extends <http://www.w3.org/2001/XMLSchema#> as xsd
+
+	aspect ThermalAnalysis :> foundationvocabularies:Analysis
    // @dc:^description "Thermal refers to the study of temperature differentials and heat flows, head can flow in 3 ways: conduction, convection, and radiation."
-    concept Thermal :> ThermalAnalysis
+	// not sure why "Thermal" is being defined as a concept  
+    concept Thermal :> foundationvocabularies:Analysis
     //@dc:^description "in this analysis the material is aluminum, so the material behavior in Fusion should be as close as possible to that of aluminum"
-    concept Material
+    @rdfs:label "Material"
+    concept Material :> ThermalAnalysis
    // @dc:^description  "thermal loads: these are the heat flows that we apply to the object,
 						//thermal loads can be characterized as either steady state (meaning it doesn't change with time) 
 						//and transient (meaning that it changes with time)."
-    concept ThermalLoads
+    @rdfs:label "Thermal Loads"
+    concept ThermalLoads :> ThermalAnalysis
    // @dc:^description "Thermoelastic pointing deviation: this is specific to the geometry of the optical tracker 
 						//but if we take a line and draw it along the central axis of the optical cone, 
 						//we're essentially measuring how the angle of that line changes before and 
 						//after we apply the thermal loads. We want to keep this deviation as small as possible ( <0.001 degrees)"
-    concept ThermoelasticPointingDev
+    @rdfs:label "Thermoelastic Pointing Deviation"
+    concept ThermoelasticPointingDev :> ThermalAnalysis
    // @dc:^description "Heat loss: it is about a heat flow.The heat loss we'll be dealing with will come in the form of radiation since we're in space, 
 						//and there's no other pathway for the thermal energy to take. 
 						//Heat loss is directional, meaning that if systems can gain or lose heat, this is an example of a system losing heat. 
 						//Our tracker will lose heat when it passes through the shadow of the earth during orbit. 
 						//Heat loss is characterized by a drop in temperature in the system."
-    concept HeatLoss
-    //Mounting Bracket Property
-//    scalar property TrackerTemp[
-//        domain ThermalLoads
-//        range xsd:float
-//    ]
-//    scalar property MountsTemp[
-//        domain ThermalLoads
-//        range xsd:float
-//    ]
-//    scalar property Centerline[
-//        domain ThermoelasticPointingDev
-//        range xsd:string
-//    ]
-//    scalar property HeatTransThroughMounts[
-//        domain HeatLoss
-//        range xsd:string
-//    ]
-//	scalar property MaterialType[
-//		domain Material
-//		range xsd:string
-//	]
-//	scalar property ThermalConductivity[
-//		domain Material
-//		range xsd:string
-//	]
-//	scalar property ThermalDisfusivity[
-//		domain Material
-//		range xsd:string
-//	]
+    @rdfs:label "Heat Loss"
+    concept HeatLoss :> ThermalAnalysis
+//    Mounting Bracket Property
+	@rdfs:label "Tracker Temp"
+    scalar property TrackerTemp[
+        domain ThermalLoads
+        range xsd:float
+    ]
+	@rdfs:label "Mounts Temp"
+    scalar property MountsTemp[
+        domain ThermalLoads
+        range xsd:float
+    ]
+	@rdfs:label "Centerline"
+    scalar property Centerline[
+        domain ThermoelasticPointingDev
+        range xsd:string
+    ]
+    @rdfs:label "Heat Transfer Through Mounts"
+    scalar property HeatTransThroughMounts[
+        domain HeatLoss
+        range xsd:string
+    ]
+    @rdfs:label "Material Type"
+	scalar property MaterialType[
+		domain Material
+		range xsd:string
+	]
+	@rdfs:label "Thermal Conductivity"
+	scalar property ThermalConductivity[
+		domain Material
+		range xsd:string
+	]
+	@rdfs:label "Thermal Disfusivity"
+	scalar property ThermalDisfusivity[
+		domain Material
+		range xsd:string
+	]
 
     //Relation
 	relation entity LoadingConditions[

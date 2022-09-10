@@ -7,7 +7,13 @@ vocabulary <http://opencaesar.io/template/vocabulary/authtool/disciplinevocabula
 //    extends <http://imce.jpl.nasa.gov/foundation/analysis#> as analysis
     
     //start point
-    concept MountingBracket
+    extends <http://www.w3.org/2000/01/rdf-schema#> as rdfs
+    extends <http://www.w3.org/2001/XMLSchema#> as xsd
+
+	extends <http://opencaesar.io/template/vocabulary/authtool/disciplinevocabularies/alternativedesignsofmountingbracket#> as alternativedesignsofmountingbracket
+
+	@rdfs:label "Mounting Bracket"
+	concept MountingBracket
     relation entity R2[
         from MountingBracket
         to GenerativeDesignOptimization
@@ -24,127 +30,167 @@ vocabulary <http://opencaesar.io/template/vocabulary/authtool/disciplinevocabula
         forward r4
     ]
 //    @dc:title "Generative Design Optimization"
+	@rdfs:label "Generative Design Optimization"
     concept GenerativeDesignOptimization :> MountingBracket
-    concept StaticLoad
-    concept Fixtures
-    concept RepresentativeLoad
-    concept Geometry
-    concept Ti6a4v
-    concept Al6061
-    concept Method
-    concept MinimizeMass
-    concept MaximizeStiffness
-    concept Inspection
+    @rdfs:label "StaticLoad"
+    concept StaticLoad :> MountingBracket
+    @rdfs:label "Fixtures"
+    concept Fixtures :> MountingBracket
+    @rdfs:label "Representative Load"
+    concept RepresentativeLoad :> MountingBracket
+    @rdfs:label "Geometry"
+    concept Geometry :> MountingBracket
+    @rdfs:label "Ti6a4v"
+    concept Ti6a4v :> MountingBracket
+    @rdfs:label "Al6061"
+    concept Al6061 :> MountingBracket
+    @rdfs:label "Method"
+    concept Method :> MountingBracket
+    @rdfs:label "Minimize Mass"
+    concept MinimizeMass :> MountingBracket
+    @rdfs:label "Maximize Stiffness"
+    concept MaximizeStiffness :> MountingBracket
+    @rdfs:label "Inspection"
+    concept Inspection :> MountingBracket
+    
     //Generative Design Optimization Property
-//    scalar property Dir[
-//        domain RepresentativeLoad
-//        range xsd:string
-//    ]
-//    scalar property Magn[
-//        domain RepresentativeLoad
-//        range xsd:int
-//    ]
-//    scalar property Magnitude[
-//        domain StaticLoad
-//        range xsd:int
-//    ]
-//    scalar property Direction[
-//        domain StaticLoad
-//        range xsd:string
-//    ]
-//    scalar property DegreeOfFreedom[
-//        domain Fixtures
-//        range xsd:string
-//    ]
-//    scalar property Obstacle[
-//        domain Geometry
-//        range xsd:string
-//    ]
-//    scalar property Preserve[
-//        domain Geometry
-//        range xsd:string
-//    ]
-//    scalar property OptimizedSpace[
-//        domain Geometry
-//        range xsd:string
-//    ]
-//    scalar property Yield[
-//        domain Ti6a4v
-//        range  xsd:string
-//    ]
-//    scalar property Ultimate[
-//        domain Ti6a4v
-//        range xsd:string
-//    ]
-//    scalar property YoungModulus[
-//        domain Ti6a4v
-//        range xsd:string
-//    ]
-//    scalar property PoissonRatio[
-//        domain Ti6a4v
-//        range xsd:float
-//    ]
-//    scalar property Density[
-//        domain Ti6a4v
-//        range xsd:int
-//    ]
-//    scalar property ThermalConductivity6a4v[
-//        domain Ti6a4v
-//        range xsd:string
-//    ]
-//    scalar property ThermalDiffusivity6a4v[
-//        domain Ti6a4v
-//        range  xsd:string
-//    ]
-//     scalar property YoungModulus6061[
-//        domain Al6061
-//        range xsd:string
-//    ]
-//    scalar property PoissonRatio6061[
-//        domain Al6061
-//        range xsd:float
-//    ]
-//    scalar property Density6061[
-//        domain Al6061
-//        range xsd:int
-//    ]
-//    scalar property ThermalConductivity6061[
-//        domain Al6061
-//        range xsd:string
-//    ]
-//    scalar property ThermalDiffusivity6061[
-//        domain Al6061
-//        range  xsd:string
-//    ]
-//    scalar property AdditiveManufacturing[
-//        domain Method
-//        range xsd:string
-//    ]
-//    scalar property MinMassLimit[
-//        domain MinimizeMass
-//        range xsd:string
-//    ]
-//    scalar property MaxStifnessLimit[
-//        domain MaximizeStiffness
-//        range xsd:string
-//    ]
-//    scalar property MaxStifnessMassTarget[
-//        domain MaximizeStiffness
-//        range xsd:string
-//    ]
-//    scalar property Roughness[
-//        domain Inspection
-//        range xsd:string
-//    ]
-//    scalar property Tolerance[
-//        domain Inspection
-//        range xsd:string
-//    ]
-//    //topology property
-//    scalar property Envir[
-//        domain Geometry
-//        range xsd:string
-//    ]
+    @rdfs:label "Direction"
+    scalar property Dir[
+        domain RepresentativeLoad
+        range xsd:string
+    ]
+    @rdfs:label "Magnitude"
+    scalar property Magn[
+        domain RepresentativeLoad
+        range xsd:int
+    ]
+    @rdfs:label "Static Load"
+    scalar property Magnitude[
+        domain StaticLoad
+        range xsd:int
+    ]
+    @rdfs:label "Direction"
+    scalar property Direction[
+        domain StaticLoad
+        range xsd:string
+    ]
+    @rdfs:label "Degrees Of Freedom"
+    scalar property DegreeOfFreedom[
+        domain Fixtures
+        range xsd:string
+    ]
+    @rdfs:label "Obstacle"
+    scalar property Obstacle[
+        domain Geometry
+        range xsd:string
+    ]
+    @rdfs:label "Preserve"
+    scalar property Preserve[
+        domain Geometry
+        range xsd:string
+    ]
+    @rdfs:label "Optimized Space"
+    scalar property OptimizedSpace[
+        domain Geometry
+        range xsd:string
+    ]
+    @rdfs:label "Yield"
+    scalar property Yield[
+        domain Ti6a4v
+        range  xsd:string
+    ]
+    @rdfs:label "Ultimate"
+    scalar property Ultimate[
+        domain Ti6a4v
+        range xsd:string
+    ]
+    @rdfs:label "Young Modulus"
+    scalar property YoungModulus[
+        domain Ti6a4v
+        range xsd:string
+    ]
+    @rdfs:label "Poisson Ratio"
+    scalar property PoissonRatio[
+        domain Ti6a4v
+        range xsd:float
+    ]
+    @rdfs:label "Density"
+    scalar property Density[
+        domain Ti6a4v
+        range xsd:int
+    ]
+    @rdfs:label "Thermal Conductivity Ti6a4v"
+    scalar property ThermalConductivity6a4v[
+        domain Ti6a4v
+        range xsd:string
+    ]
+    @rdfs:label "Thermal Diffusivity Ti6a4v"
+    scalar property ThermalDiffusivity6a4v[
+        domain Ti6a4v
+        range  xsd:string
+    ]
+    @rdfs:label "Young Modulus Al6061"
+     scalar property YoungModulus6061[
+        domain Al6061
+        range xsd:string
+    ]
+    @rdfs:label "Poisson Ratio Al6061"
+    scalar property PoissonRatio6061[
+        domain Al6061
+        range xsd:float
+    ]
+    @rdfs:label "Density Al6061"
+    scalar property Density6061[
+        domain Al6061
+        range xsd:int
+    ]
+    @rdfs:label "Thermal Conductivity Al6061"
+    scalar property ThermalConductivity6061[
+        domain Al6061
+        range xsd:string
+    ]
+    @rdfs:label "Thermal Diffusivity Al6061"
+    scalar property ThermalDiffusivity6061[
+        domain Al6061
+        range  xsd:string
+    ]
+    @rdfs:label "Additive Manufacturing"
+    scalar property AdditiveManufacturing[
+        domain Method
+        range xsd:string
+    ]
+    @rdfs:label "Minimize Mass Limit"
+    scalar property MinMassLimit[
+        domain MinimizeMass
+        range xsd:string
+    ]
+    @rdfs:label "MaxStifnessLimit"
+    scalar property MaxStiffnessLimit[
+        domain MaximizeStiffness
+        range xsd:string
+    ]
+    @rdfs:label "Maximize Stiffness Mass Target"
+    scalar property MaxStifgnessMassTarget[
+        domain MaximizeStiffness
+        range xsd:string
+    ]
+    @rdfs:label "Roughness"
+    scalar property Roughness[
+        domain Inspection
+        range xsd:string
+    ]
+    @rdfs:label "Tolerance"
+    scalar property Tolerance[
+        domain Inspection
+        range xsd:string
+    ]
+    //topology property
+    @rdfs:label "Environment"
+    scalar property Envir[
+        domain Geometry
+        range xsd:string
+    ]
+    
     //Generative Design Optimization relation
     relation entity BoundaryConditions[
         from GenerativeDesignOptimization
@@ -183,7 +229,7 @@ vocabulary <http://opencaesar.io/template/vocabulary/authtool/disciplinevocabula
     ]
     relation entity ManufacturingInspection[
         from GenerativeDesignOptimization
-        to Inspection
+        to alternativedesignsofmountingbracket:Inspection
         forward manufacturingInspection
     ]
     relation entity Objective[
@@ -199,27 +245,36 @@ vocabulary <http://opencaesar.io/template/vocabulary/authtool/disciplinevocabula
     /*****************************************************************************************************/
     /**********************************separate line*****************************************************/
 //    @dc:title "Mounting Bracket"
+	@rdfs:label "ThermalAnalysis"
+	// Not sure why ThermalAnaylsis is inheriting from MountingBracket when both are concepts
     concept ThermalAnalysis :> MountingBracket
+    @rdfs:label "Thermal Loads"
     concept ThermalLoads
+    @rdfs:label "Thermoelastic Pointing Deviation"
     concept ThermoelasticPointingDev
+    @rdfs:label "HeatLoss"
     concept HeatLoss
     //Mounting Bracket Property
-//    scalar property TrackerTemp[
-//        domain ThermalLoads
-//        range xsd:float
-//    ]
-//    scalar property MountsTemp[
-//        domain ThermalLoads
-//        range xsd:float
-//    ]
-//    scalar property CenterlinePosi[
-//        domain ThermoelasticPointingDev
-//        range xsd:string
-//    ]
-//    scalar property HeatTransThroughMounts[
-//        domain HeatLoss
-//        range xsd:string
-//    ]
+    @rdfs:label "Tracker Temp"
+    scalar property TrackerTemp[
+        domain ThermalLoads
+        range xsd:float
+    ]
+    @rdfs:label "Mounts Temp"
+    scalar property MountsTemp[
+        domain ThermalLoads
+        range xsd:float
+    ]
+    @rdfs:label "Centerline Position"
+    scalar property CenterlinePosi[
+        domain ThermoelasticPointingDev
+        range xsd:string
+    ]
+    @rdfs:label "Heat Transfer Through Mounts"
+    scalar property HeatTransThroughMounts[
+        domain HeatLoss
+        range xsd:string
+    ]
     //Mounting Bracket Relation
     relation entity LoadingCond[
         from ThermalAnalysis
@@ -240,43 +295,60 @@ vocabulary <http://opencaesar.io/template/vocabulary/authtool/disciplinevocabula
     /*****************************************************************************************************/
     /**********************************separate line*****************************************************/
 //    @dc:title "Topology Optimization"
+	@rdfs:label "Topology Optimization"
     concept TopologyOptimization :> MountingBracket
+    @rdfs:label "Gravity"
     concept Gravity
+    @rdfs:label "Frequency Constraint"
     concept FrequencyConstraint
-    concept Load 
+    @rdfs:label "Load"
+    concept Load
+    @rdfs:label "Maximize Frequency"
     concept MaxFrequency
+    @rdfs:label "Topology Maximize Stiffness"
     concept TopoMaxStiffness
+    @rdfs:label "Topology Minimize Mass"
     concept TopoMinMass
+    @rdfs:label "Topology Fixture"
     concept TopoFixture
+    
     //Topology Optimization Property
-//    scalar property Status[
-//        domain Gravity
-//        range xsd:boolean
-//    ]
-//    scalar property Hz[
-//        domain FrequencyConstraint
-//        range xsd:float
-//    ]
-//    scalar property LoadDir[
-//    	domain Load
-//    	range xsd:string
-//    ]
-//    scalar property LoadMagnitude[
-//    	domain Load
-//    	range xsd:int 
-//    ]
-//    scalar property PercentTotalVolum[
-//    	domain TopoMaxStiffness
-//    	range xsd:float
-//    ]
-//    scalar property Safety[
-//    	domain TopoMinMass
-//    	range xsd:string
-//    ]
-//    scalar property DegreesOfFredom[
-//        domain TopoFixture
-//        range xsd:string
-//    ]
+    @rdfs:label "Status"
+    scalar property Status[
+        domain Gravity
+        range xsd:boolean
+    ]
+    @rdfs:label "Hz"
+    scalar property Hz[
+        domain FrequencyConstraint
+        range xsd:float
+    ]
+    @rdfs:label "Load Direction"
+    scalar property LoadDir[
+    	domain Load
+    	range xsd:string
+    ]
+    @rdfs:label "Load Magnitude"
+    scalar property LoadMagnitude[
+    	domain Load
+    	range xsd:int 
+    ]
+    @rdfs:label "Percent Total Volume"
+    scalar property PercentTotalVol[
+    	domain TopoMaxStiffness
+    	range xsd:float
+    ]
+    @rdfs:label "Safety"
+    scalar property Safety[
+    	domain TopoMinMass
+    	range xsd:string
+    ]
+    @rdfs:label "Degrees Of Freedom"
+    scalar property DegreesOfFreedom[
+        domain TopoFixture
+        range xsd:string
+    ]
+    
     //Topology Optimization Relation
     relation entity TopoLoadCon[
     	from TopologyOptimization
@@ -317,24 +389,36 @@ vocabulary <http://opencaesar.io/template/vocabulary/authtool/disciplinevocabula
      /*****************************************************************************************************/
     /**********************************separate line*****************************************************/
     // general requirement
+    @rdfs:label "General Requirement"
     concept GeneralRequirement
+    @rdfs:label "Min Point Div"
     concept MinPointDiv
-    concept MinMemberSiz
+    @rdfs:label "Min Member Size"
+    concept MinMemberSize
+    @rdfs:label "Overall Thermal Loss"
     concept OverallThermalLoss
+    @rdfs:label "Structural Yield"
     concept StrucYield
+    @rdfs:label "Structural Buckle"
     concept StruBuckle
+    @rdfs:label "Base Interface Slippage"
     concept BaseInterfaceSlippage
-    concept FoundamentalFrequency
+    @rdfs:label "Fundamental Frequency"
+    concept FundamentalFrequency
+    @rdfs:label "Instrument Slippage"
     concept InstrumentSlippage
+    
     //property
-//    scalar property LimitFactorSafetyDiv[
-//        domain MinPointDiv
-//        range xsd:string
-//    ]
-//    scalar property LimitFactorSafetySize[
-//        domain MinMemberSiz
-//        range xsd:string
-//    ]
+    @rdfs:label "Limit Factor Safety Div"
+    scalar property LimitFactorSafetyDiv[
+        domain MinPointDiv
+        range xsd:string
+    ]
+    @rdfs:label "Limit Factor Safety Size"
+    scalar property LimitFactorSafetySize[
+        domain MinMemberSize
+        range xsd:string
+    ]
     //relation
     relation entity StructuralYield[
         from GeneralRequirement
@@ -353,7 +437,7 @@ vocabulary <http://opencaesar.io/template/vocabulary/authtool/disciplinevocabula
     ]
     relation entity FoundmentalFre[
         from GeneralRequirement
-        to FoundamentalFrequency
+        to FundamentalFrequency
         forward entryfrequency
     ]
     relation entity InstruSlippage[
@@ -368,7 +452,7 @@ vocabulary <http://opencaesar.io/template/vocabulary/authtool/disciplinevocabula
     ]
     relation entity MinMemberObjective[
         from GeneralRequirement
-        to MinMemberSiz
+        to MinMemberSize
         forward minosizebjective
     ]
     relation entity ObjectiveOverallLoss[

@@ -1,5 +1,7 @@
 <?xml version='1.0'?>
 <catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="public">
+	<rewriteURI uriStartString="http://opencaesar.io/viewpoint" rewritePrefix="build/oml/opencaesar.io/viewpoint"/> <!--IRI namespace prefix for sources-->
 	<rewriteURI uriStartString="http://opencaesar.io/" rewritePrefix="src/oml/opencaesar.io/"/> <!--IRI namespace prefix for sources-->
-	<rewriteURI uriStartString="http://" rewritePrefix="build/oml/" /> <!-- catch all namespace prefix for dependencies-->
+	<rewriteURI uriStartString="http://" rewritePrefix="build/oml/"/> <!-- catch all namespace prefix for dependencies-->
 </catalog>
+

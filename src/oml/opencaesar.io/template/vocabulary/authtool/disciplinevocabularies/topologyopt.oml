@@ -3,92 +3,129 @@ vocabulary <http://opencaesar.io/template/vocabulary/authtool/disciplinevocabula
 //    extends <http://imce.jpl.nasa.gov/foundation/base>
 //    extends <http://imce.jpl.nasa.gov/foundation/mission>
 //    extends <http://imce.jpl.nasa.gov/foundation/analysis>
-    concept TopologyOptimization 
+    extends <http://opencaesar.io/template/vocabulary/authtool/foundationvocabularies#> as foundationvocabularies
+
+	extends <http://www.w3.org/2000/01/rdf-schema#> as rdfs
+	extends <http://www.w3.org/2001/XMLSchema#> as xsd
+
+	@rdfs:label "Topology Optimization"
+	concept TopologyOptimization :> foundationvocabularies:Optimization
+   	@rdfs:label "Gravity"
     concept Gravity
+    @rdfs:label "Load"
     concept Load 
+    @rdfs:label "MaxFrequency"
     concept MaxFrequency
+    @rdfs:label "MaxStiffness"
     concept MaxStiffness
+    @rdfs:label "MinMass"
     concept MinMass
+    @rdfs:label "Fixtures"
     concept Fixtures
+    @rdfs:label "Ti6a4v"
     concept Ti6a4v
+    @rdfs:label "Al6061"
     concept Al6061
+    @rdfs:label "Geometry"
     concept Geometry
+    
     //Topology Optimization Property
-//    scalar property Status[
-//        domain Gravity
-//        range xsd:boolean
-//    ]
-//    scalar property LoadDir[
-//    	domain Load
-//    	range xsd:string
-//    ]
-//    scalar property LoadMagnitude[
-//    	domain Load
-//    	range xsd:int 
-//    ]
-//    scalar property PercentTotalVolum[
-//    	domain MaxStiffness
-//    	range xsd:float
-//    ]
-//    scalar property Safety[
-//    	domain MinMass
-//    	range xsd:string
-//    ]
-//    scalar property DegreesOfFredom[
-//        domain Fixtures
-//        range xsd:string
-//    ]scalar property Yield[
-//        domain Ti6a4v
-//        range  xsd:string
-//    ]
-//    scalar property Ultimate[
-//        domain Ti6a4v
-//        range xsd:string
-//    ]
-//    scalar property YoungModulus[
-//        domain Ti6a4v
-//        range xsd:string
-//    ]
-//    scalar property PoissonRatio[
-//        domain Ti6a4v
-//        range xsd:float
-//    ]
-//    scalar property Density[
-//        domain Ti6a4v
-//        range xsd:int
-//    ]
-//    scalar property ThermalConductivity6a4v[
-//        domain Ti6a4v
-//        range xsd:string
-//    ]
-//    scalar property ThermalDiffusivity6a4v[
-//        domain Ti6a4v
-//        range  xsd:string
-//    ]
-//     scalar property YoungModulus6061[
-//        domain Al6061
-//        range xsd:string
-//    ]
-//    scalar property PoissonRatio6061[
-//        domain Al6061
-//        range xsd:float
-//    ]
-//    scalar property Density6061[
-//        domain Al6061
-//        range xsd:int
-//    ]
-//    scalar property ThermalConductivity6061[
-//        domain Al6061
-//        range xsd:string
-//    ]
-//    scalar property ThermalDiffusivity6061[
-//        domain Al6061
-//        range  xsd:string
-//    ]
-//    scalar property Environment[
-//        domain Geometry
-//        range xsd:string
-//    ]
+    @rdfs:label "Status"
+    scalar property Status[
+        domain Gravity
+        range xsd:boolean
+    ]
+    @rdfs:label "Load Direction"
+    scalar property LoadDir[
+    	domain Load
+    	range xsd:string
+    ]
+    @rdfs:label "Load Magnitude"
+    scalar property LoadMagnitude[
+    	domain Load
+    	range xsd:int 
+    ]
+    @rdfs:label "Percent Total Volume"
+    scalar property PercentTotalVol[
+    	domain MaxStiffness
+    	range xsd:float
+    ]
+    @rdfs:label "Safety"
+    scalar property Safety[
+    	domain MinMass
+    	range xsd:string
+    ]
+    @rdfs:label "Degrees Of Freedom"
+    scalar property DegreesOfFreedom[
+        domain Fixtures
+        range xsd:string
+    ]
+    @rdfs:label "Yield"
+    scalar property Yield[
+        domain Ti6a4v
+        range  xsd:string
+    ]
+    @rdfs:label "Ultimate"
+    scalar property Ultimate[
+        domain Ti6a4v
+        range xsd:string
+    ]
+    @rdfs:label "Young Modulus"
+    scalar property YoungModulus[
+        domain Ti6a4v
+        range xsd:string
+    ]
+    @rdfs:label "Poisson Ratio"
+    scalar property PoissonRatio[
+        domain Ti6a4v
+        range xsd:float
+    ]
+    @rdfs:label "Density"
+    scalar property Density[
+        domain Ti6a4v
+        range xsd:int
+    ]
+    @rdfs:label "Thermal Conductivity Ti6a4v"
+    scalar property ThermalConductivity6a4v[
+        domain Ti6a4v
+        range xsd:string
+    ]
+    @rdfs:label "Thermal Diffusivity Ti6a4v"
+    scalar property ThermalDiffusivity6a4v[
+        domain Ti6a4v
+        range  xsd:string
+    ]
+    @rdfs:label "Young Modulus Al6061"
+     scalar property YoungModulus6061[
+        domain Al6061
+        range xsd:string
+    ]
+    @rdfs:label "Poisson Ratio Al6061"
+    scalar property PoissonRatio6061[
+        domain Al6061
+        range xsd:float
+    ]
+    @rdfs:label "Density Al6061"
+    scalar property Density6061[
+        domain Al6061
+        range xsd:int
+    ]
+    @rdfs:label "Thermal Conductivity Al6061"
+    scalar property ThermalConductivity6061[
+        domain Al6061
+        range xsd:string
+    ]
+    @rdfs:label "Thermal Diffusivity Al6061"
+    scalar property ThermalDiffusivity6061[
+        domain Al6061
+        range  xsd:string
+    ]
+    @rdfs:label "Environment"
+    scalar property Environment[
+        domain Geometry
+        range xsd:string
+    ]
+
     //Topology Optimization Relation
     relation entity TopoLoadCon[
     	from TopologyOptimization

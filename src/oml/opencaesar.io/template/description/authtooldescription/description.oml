@@ -1,148 +1,180 @@
 //@dc:title "Discipline Description"
+
+
 description <http://opencaesar.io/template/description/authtooldescription/description#> as authdescription {
 
 	uses <http://opencaesar.io/template/vocabulary/authtool/disciplinevocabularies/mountingbracket#> as mountingbracket
 	uses <http://opencaesar.io/template/vocabulary/authtool/disciplinevocabularies/topologyopt#> as topologyopt
 	uses <http://opencaesar.io/template/vocabulary/authtool/disciplinevocabularies/thermalanalysis#> as thermalanalysis
+	uses <http://opencaesar.io/template/vocabulary/authtool/disciplinevocabularies#> as disciplinevocabularies
+	uses <http://www.w3.org/2000/01/rdf-schema#> as rdfs
+
+	
+	@rdfs:label "Mounting Bracket" 
 	ci MountingBracket : mountingbracket:MountingBracket
+	
 	//@dc:title "Generative Design Optimization Concept Instance"
-//	ci GenerativeDesignOptimization : generativedesignopt:GenerativeDesignOptimization
-//	ri R2[
-//		from authdescription:MountingBracket
-//		to authdescription:GenerativeDesignOptimization
-//	]
-//	ri R3 [
-//		from authdescription:MountingBracket
-//		to authdescription:TopologyOptimization
-//	]
-//
-//	ci StaticLoad : generativedesignopt:StaticLoad[
-//				generativedesignopt:Magnitude "Sample: 2000"
-//				generativedesignopt:Direction "Sample: X"
-//	]
-//
-//	ci RepresentativeLoad : generativedesignopt:RepresentativeLoad [
-//			generativedesignopt:Magnitude "Sample 2000"
-//			generativedesignopt:Direction "Sample: y"
-//	]
-//
-//	ci Fixtures : generativedesignopt:Fixtures [
-//		generativedesignopt:DegreeOfFreedom "degree of freedom"
-//	]
-//	ci Geometry : generativedesignopt:Geometry[
-//		generativedesignopt:Obstacle "obstacle"
-//		generativedesignopt:Preserve "preserve"
-//		generativedesignopt:OptimizedSpace " optimized space"
-//	]
-//	ci Ti6a4v : generativedesignopt:Ti6a4v[
-//		generativedesignopt:Yield "Test"
-//		generativedesignopt:Ultimate "test"
-//		generativedesignopt:YoungModulus "test"
-//		generativedesignopt:PoissonRatio 1.11
-//		generativedesignopt:Density 100.1
-//	]
-//	ci Al6061 : generativedesignopt:Al6061[
-//		generativedesignopt:YoungModulus "test"
-//		generativedesignopt:PoissonRatio 2.22
-//		generativedesignopt:Density 111
-//
-//	]
+	@rdfs:label "Generative Design Optimization"
+	ci GenerativeDesignOptimization : disciplinevocabularies:GenerativeDesignOptimization
+	ri R2[
+		from authdescription:MountingBracket
+		to authdescription:GenerativeDesignOptimization
+	]
+	ri R3 [
+		from authdescription:MountingBracket
+		to authdescription:TopologyOptimization
+	]
+	
+	@rdfs:label "Static Load"
+	ci StaticLoad : disciplinevocabularies:StaticLoad[
+				disciplinevocabularies:Magnitude "Sample: 2000"
+				disciplinevocabularies:Direction "Sample: X"
+	]
+	
+	@rdfs:label "Representative Load"
+	ci RepresentativeLoad : disciplinevocabularies:RepresentativeLoad [
+			disciplinevocabularies:Magn 2000
+			disciplinevocabularies:Dir "y"
+	]
+
+	@rdfs:label "Fixtures"
+	ci Fixtures : topologyopt:Fixtures [
+		topologyopt:DegreesOfFreedom "1"
+	]
+	
+	@rdfs:label "Geometry"
+	ci Geometry : disciplinevocabularies:Geometry[
+		disciplinevocabularies:Obstacle "obstacle"
+		disciplinevocabularies:Preserve "preserve"
+		disciplinevocabularies:OptimizedSpace " optimized space"
+	]
+	
+	@rdfs:label "Ti6a4v"
+	ci Ti6a4v : disciplinevocabularies:Ti6a4v[
+		disciplinevocabularies:Yield "Test"
+		disciplinevocabularies:Ultimate "test"
+		disciplinevocabularies:YoungModulus "test"
+		disciplinevocabularies:PoissonRatio 1.11
+		disciplinevocabularies:Density 100.1
+	]
+	
+	@rdfs:label "Al6061"
+	ci Al6061 : disciplinevocabularies:Al6061[
+		disciplinevocabularies:YoungModulus6061 "test"
+		disciplinevocabularies:PoissonRatio6061 2.22
+		disciplinevocabularies:Density6061 111
+
+	]
+	
+//The enumerated scalars "LimitFactorOfSafety", etc. need to be defined in generativedesignon.oml in order to use these	
+//	@rdfs:label "Minimize Mass"
 //	ci MinimizeMass : generativedesignopt:MinimizeMass[
 //		generativedesignopt:LimitFactorOfSafety "Test"
 //	]
+//	@rdfs:label "Max Stiffness"
 //	ci MaxStiffness : generativedesignopt:MaximizeStiffness[
 //		generativedesignopt:Limit1FactorOfSafety "Test"
 //		generativedesignopt:Limit2MassTarget "Test"
 //	]
-//	ci Method : generativedesignopt:Method[
-//		generativedesignopt:AdditiveManufacturing "test"
-//	]
+	@rdfs:label "Method"
+	ci Method : disciplinevocabularies:Method[
+		disciplinevocabularies:AdditiveManufacturing "test"
+	]
 //	@dc:title "Generative Design Optimization Concept Instance relation"
-//	@dc:^description "Connect two concept instance through the realtion"
-//	ri BoundaryCond : generativedesignopt:BoundaryConditions [
-//		from authdescription:GenerativeDesignOptimization
-//		to authdescription:StaticLoad
-//	]
-//	ri BoundaryCondFixtures : generativedesignopt:BoundaryConditions [
-//		from authdescription:GenerativeDesignOptimization
-//		to authdescription:Fixtures
-//	]
-//	ri BoundaryCondRepresentativeLoad : generativedesignopt:BoundaryCondRepresentative[
-//		from authdescription:GenerativeDesignOptimization
-//		to RepresentativeLoad
-//	]
-//	ri Body : generativedesignopt:Body[
-//		from authdescription:GenerativeDesignOptimization
-//		to authdescription:Geometry
-//	]
-//	ri Material : generativedesignopt:Material[
-//		from authdescription:GenerativeDesignOptimization
-//		to authdescription:Ti6a4v
-//	]
-//	ri MaterialAl6061 : generativedesignopt:MaterialAl6061[
-//		from authdescription:GenerativeDesignOptimization
-//		to authdescription:Al6061
-//	]
-//	ri Objective : generativedesignopt:Objective [
+//	@dc:^description "Connect two concept instance through the relation"
+	ri BoundaryCond : disciplinevocabularies:BoundaryConditions[
+		from authdescription:GenerativeDesignOptimization
+		to authdescription:StaticLoad
+	]
+	ri BoundaryCondFixtures : disciplinevocabularies:BoundaryConditions[
+		from authdescription:GenerativeDesignOptimization
+		to authdescription:Fixtures
+	]
+	ri BoundaryCondRepresentativeLoad : disciplinevocabularies:BoundaryCondRepresentative[
+		from authdescription:GenerativeDesignOptimization
+		to RepresentativeLoad
+	]
+	ri Body : disciplinevocabularies:Body[
+		from authdescription:GenerativeDesignOptimization
+		to authdescription:Geometry
+	]
+	ri Material : disciplinevocabularies:Material[
+		from authdescription:GenerativeDesignOptimization
+		to authdescription:Ti6a4v
+	]
+	ri MaterialAl6061 : disciplinevocabularies:MaterialAl6061[
+		from authdescription:GenerativeDesignOptimization
+		to authdescription:Al6061
+	]
+	
+//Cannot have these relations without defining the "MinimizeMass" or "MaxStiffness" first 	
+//	ri Objective : disciplinevocabularies:Objective[
 //		from authdescription:GenerativeDesignOptimization
 //		to authdescription:MinimizeMass
 //	]
-//	ri ObjectiveStiffness : generativedesignopt:ObjectiveMaxStiffness[
+//	ri ObjectiveStiffness : disciplinevocabularies:ObjectiveMaxStiffness[
 //		from authdescription:GenerativeDesignOptimization
 //		to authdescription:MaxStiffness
 //	]
-//	ri Manufacturing : generativedesignopt:Manufacturing[
-//		from authdescription:GenerativeDesignOptimization
-//		to authdescription:Method
-//	]
-	//******************************************seperate line**********************************************************************
+	ri Manufacturing : disciplinevocabularies:Manufacturing[
+		from authdescription:GenerativeDesignOptimization
+		to authdescription:Method
+	]
+
+	//******************************************separate line**********************************************************************
 //	@dc:title "Mounting Bracket Concept Instance"
 //	
-
+	@rdfs:label "Heat Loss" 
 	ci HeatLoss : thermalanalysis:HeatLoss[
-		//thermalanalysis:HeatTransThroughMounts 111
+		thermalanalysis:HeatTransThroughMounts 111
 	]
 	
-
-	//Mounting Bracket Relation
-
-	
-
-
-	//******************************************seperate line**********************************************************************
+	//******************************************separate line**********************************************************************
 	//@dc:title "Topology Optimization Concept Instance"
+	@rdfs:label "Topology Optimization" 
 	ci TopologyOptimization : topologyopt:TopologyOptimization
+	@rdfs:label "TopoGeometry"
 	ci TopoGeometry : topologyopt:Geometry[
-		//topologyopt:Environment "Design Space"
+		topologyopt:Environment "Design Space"
 	]
+	@rdfs:label "Load"
 	ci Load : topologyopt:Load[
-//		topologyopt:LoadDir "X"
-//		topologyopt:LoadMagnitude 222
+		topologyopt:LoadDir "X"
+		topologyopt:LoadMagnitude 222
 	]
-	ci TopoFixtures : topologyopt:Fixtures[
-//		topologyopt:DegreesOfFredom "Test Message"
+	
+//concept instances MUST be renamed separate from the concept name
+	@rdfs:label "Fixtures"
+	ci topoFixtures : topologyopt:Fixtures[
+		topologyopt:DegreesOfFreedom "Test Message"
 	]
-	ci TopoTi6a4v : topologyopt:Ti6a4v[
-//		topologyopt:Yield "Test"
-//		topologyopt:Ultimate "test"
-//		topologyopt:YoungModulus "test"
-//		topologyopt:PoissonRatio 1.11
-//		topologyopt:Density 100.1
+	@rdfs:label "Ti6a4v"
+	ci topoTi6a4v : topologyopt:Ti6a4v[
+		topologyopt:Yield "Test"
+		topologyopt:Ultimate "test"
+		topologyopt:YoungModulus "test"
+		topologyopt:PoissonRatio 1.11
+		topologyopt:Density 100.1
 	]
-	ci TopoAl6061 : topologyopt:Al6061[
-//		topologyopt:YoungModulus "test"
-//		topologyopt:PoissonRatio 2.22
-//		topologyopt:Density 111
+	@rdfs:label "Al6061"
+	ci topoAl6061 : topologyopt:Al6061[
+		topologyopt:YoungModulus6061 "test"
+		topologyopt:PoissonRatio6061 2.22
+		topologyopt:Density6061 111
 	]
-	ci TopoMaxFrequency : topologyopt:MaxFrequency
-	ci TopoMinimizeMass : topologyopt:MinMass[
-//		topologyopt:Safety "Test"
+	@rdfs:label "MaxFrequency"
+	ci topoMaxFrequency : topologyopt:MaxFrequency
+	@rdfs:label "MinimizeMass"
+	ci topoMinMass : topologyopt:MinMass[
+		topologyopt:Safety "Test"
 	]
-	ci TopoMaxStiffness : topologyopt:MaxStiffness[
-//		topologyopt:PercentTotalVolum 6.6
+	@rdfs:label "MaxStiffness"
+	ci topoMaxStiffness : topologyopt:MaxStiffness[
+		topologyopt:PercentTotalVol 6.6
 	]
-	ci Gravity : topologyopt:Gravity[
-//		topologyopt:Status true
+	@rdfs:label "Gravity"
+	ci topoGravity : topologyopt:Gravity[
+		topologyopt:Status true
 	]
 	//constant instance relation topology opt
 	ri TopoBody : topologyopt:Body[
@@ -155,30 +187,30 @@ description <http://opencaesar.io/template/description/authtooldescription/descr
 	]
 	ri TopoBoundaryCondFixtures : topologyopt:BoundaryCond[
 		from TopologyOptimization
-		to TopoFixtures
+		to topoFixtures
 	]
 	ri TopoMaterial : topologyopt:Material[
 		from authdescription:TopologyOptimization
-		to authdescription:TopoTi6a4v
+		to authdescription:topoTi6a4v
 	]
 	ri TopoMaterial6061 : topologyopt:MaterialAl6061[
 		from authdescription:TopologyOptimization
-		to authdescription:TopoAl6061
+		to authdescription:topoAl6061
 	]
 	ri TopoObjective : topologyopt:ObjectiveMinMass [
 		from authdescription:TopologyOptimization
-		to authdescription:TopoMinimizeMass
+		to authdescription:topoMinMass
 	]
 	ri TopoObjectiveStiffness : topologyopt:ObjectiveStiffness[
 		from authdescription:TopologyOptimization
-		to authdescription:TopoMaxStiffness
+		to authdescription:topoMaxStiffness
 	]
 	ri TopoObjFrequency : topologyopt:ObjectiveFrequency[
 		from TopologyOptimization
-		to TopoMaxFrequency
+		to topoMaxFrequency
 	]
 	ri Force : topologyopt:Force[
 		from TopologyOptimization
-		to Gravity
+		to topoGravity
 	]
 }

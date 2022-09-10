@@ -1,5 +1,4 @@
-
-description <http://opencaesar.io/template/description/authtooldescription/alternativedesigndescription#> as alterdescription{
+description <http://opencaesar.io/template/description/authtooldescription/alternativedesigndescription#> as desc {
 	
 	uses <http://opencaesar.io/template/vocabulary/authtool/disciplinevocabularies/alternativedesignsofmountingbracket#>  as alternativedesignsofmountingbracket
 	uses <http://opencaesar.io/template/vocabulary/authtool/disciplinevocabularies/thermalanalysis#> as thermalanalysis
@@ -8,7 +7,7 @@ description <http://opencaesar.io/template/description/authtooldescription/alter
 	ci GenerativeDesignOfMountingBracket : alternativedesignsofmountingbracket:GenerativeDesignOfMountingBracket
 	ci GenerativeDesignOfOptimization : alternativedesignsofmountingbracket:GenerativeDesignOpt
 	ci Material : alternativedesignsofmountingbracket:Material[
-		//alternativedesignsofmountingbracket:MaterialType ""
+		//MaterialType ""
 	]
 	ci StaticLoad : alternativedesignsofmountingbracket:StaticLoad[
 		//alternativedesignsofmountingbracket:DirectionStaticLoad ""
