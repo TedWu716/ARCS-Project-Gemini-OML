@@ -1,0 +1,4 @@
+vocabulary bundle <http://arcs.csun.edu/gemini/vocabulary/bundle#> as vocabulary-bundle {
+
+	includes <http://arcs.csun.edu/gemini/vocabulary/alternativedesignsofmountingbracket#>
+}

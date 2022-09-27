@@ -1,8 +1,0 @@
-vocabulary <http://opencaesar.io/template/vocabulary/authtool/foundationvocabularies#> as foundationvocabularies{
-	
-	aspect Element
-	aspect Assembly :> Element
-	aspect Optimization :> Element
-	aspect Analysis :> Element
-
-}

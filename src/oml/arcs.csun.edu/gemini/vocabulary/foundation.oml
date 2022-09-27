@@ -1,0 +1,8 @@
+vocabulary <http://arcs.csun.edu/gemini/vocabulary/foundation#> as foundationvocabularies{
+	
+	aspect Element
+	aspect Assembly :> Element
+	aspect Optimization :> Element
+	aspect Analysis :> Element
+
+}

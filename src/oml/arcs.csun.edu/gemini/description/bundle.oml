@@ -1,0 +1,15 @@
+// @dc:title "Description Bundle"
+// @dc:creator "Example Company"
+// @dc:rights "Copyright 2019, by Example Company"
+description bundle <http://arcs.csun.edu/gemini/description/bundle#> as description-bundle {
+	
+	// The vocabulary bundle used by this description bundle
+	uses <http://arcs.csun.edu/gemini/vocabulary/bundle#> 
+	
+	// All the descriptions included in this description bundle
+	
+	//arcs.csun.edu/gemini/description/authtooldescription/alternativedesigndescription
+	includes <http://arcs.csun.edu/gemini/description/alternativedesigndescription#>
+	
+	includes <http://arcs.csun.edu/gemini/description/description#>
+}

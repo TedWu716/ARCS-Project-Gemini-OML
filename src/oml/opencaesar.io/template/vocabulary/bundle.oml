@@ -1,4 +1,0 @@
-vocabulary bundle <http://opencaesar.io/template/vocabulary/bundle#> as vocabulary-bundle {
-
-	includes <http://opencaesar.io/template/vocabulary/authtool/disciplinevocabularies/alternativedesignsofmountingbracket#>
-}
