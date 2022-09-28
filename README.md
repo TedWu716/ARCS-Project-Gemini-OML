@@ -1,4 +1,4 @@
-# ARCS-LSAM-CSUN-Project-Gemini-OpenCAESAR  
+# ARCS-Project-Gemini-OpenCAESAR  
 ## Implementing [openCAESAR](https://github.com/opencaesar) to create an ontology  
 ```
 git clone https://github.com/TedWu716/ARCS-Project-Gemini-OML.git
