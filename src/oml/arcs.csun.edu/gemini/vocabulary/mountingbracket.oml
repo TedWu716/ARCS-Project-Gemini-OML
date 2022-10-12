@@ -1,13 +1,16 @@
 vocabulary <http://arcs.csun.edu/gemini/vocabulary/mountingbracket#> as mountingbracket{
     extends <http://arcs.csun.edu/gemini/vocabulary/generativedesignopt#>
-    extends <http://arcs.csun.edu/gemini/vocabulary/thermalanalysis#>
+    
     extends <http://arcs.csun.edu/gemini/vocabulary/topologyopt#>
 
 	extends <http://arcs.csun.edu/gemini/vocabulary/foundation#> as foundation
 
+	//future use thermalanalysis
+	//extends <http://arcs.csun.edu/gemini/vocabulary/thermalanalysis#>
+	
 	extends <http://www.w3.org/2000/01/rdf-schema#> as rdfs
     
-   @rdfs:label "Mounting Bracket"
+    @rdfs:label "Mounting Bracket"
     concept MountingBracket :> foundation:Assembly
     
     

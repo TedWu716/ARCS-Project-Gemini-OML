@@ -1,0 +1,153 @@
+vocabulary <http://arcs.csun.edu/gemini/vocabulary/generative_design#> as generative_design {
+
+	extends <http://www.w3.org/2001/XMLSchema#> as xsd
+
+	
+	concept GenerativeDesignOfMountingBracket
+	concept GenerativeDesignOpt
+	concept Material
+	concept StaticLoad
+	concept RepresentativeLoad
+	concept Fixtures
+	concept GeometricConstraints
+	concept Manufacturing_Process
+	concept Inspection
+	
+	//concept Filter--[Filter element for the future use]
+	
+	//Material
+	scalar property MaterialType [
+		domain Material
+		range xsd:string
+	]
+
+
+	//Static Load
+	scalar property DirectionStaticLoad [
+		domain StaticLoad
+		range xsd:string
+	]
+
+	scalar property MagnitudeStaticLoad [
+		domain StaticLoad
+		range xsd:string
+	]
+
+	//RepresentativeLoad
+	scalar property DirectionRepreLoad [
+		domain RepresentativeLoad
+		range xsd:string
+	]
+
+	scalar property MagnitudeRepreLoad [
+		domain RepresentativeLoad
+		range xsd:string
+	]
+
+	//Fixtures
+	scalar property DegreeofFredom [
+		domain Fixtures
+		range xsd:double
+	]
+
+	scalar property Units [
+		domain Fixtures
+		range xsd:string
+	]
+	
+	//GeometricConstraints
+	scalar property Obstacle [
+		domain GeometricConstraints
+		range xsd:string
+	]
+
+	scalar property Preserve [
+		domain GeometricConstraints
+		range xsd:string
+	]
+
+	scalar property OptimizedSpace [
+		domain GeometricConstraints
+		range xsd:string
+	]
+	
+	//Manufacturing Process
+	scalar property AdditiveManufacturing [
+		domain Manufacturing_Process
+		range xsd:string
+	]
+	
+	scalar property MillingManufacturing[
+		domain Manufacturing_Process
+		range xsd:string
+	]
+	
+	scalar property UnrestrictedManufacturing[
+		domain Manufacturing_Process
+		range xsd:string
+	]
+	
+	//Inspection
+	scalar property Roughness [
+		domain Inspection
+		range xsd:string
+	]
+
+	scalar property Tolerance [
+		domain Inspection
+		range xsd:string
+	]
+	
+	/* Filter element for future use */
+	/* 
+	    scalar property Filters [
+		domain Filter
+		range xsd:string
+	]
+	*/
+	
+
+	//relation for all elements
+	
+	relation entity Materials [
+		from GenerativeDesignOpt
+		to Material
+		forward materials
+	]
+
+	relation entity BoundaryConditions [
+		from GenerativeDesignOpt
+		to StaticLoad
+		forward boundaryConditions
+	]
+	
+	relation entity BoundaryConditionsRepreLoad [
+		from GenerativeDesignOpt
+		to RepresentativeLoad
+		forward boundaryConditionsRepreLoad
+	]
+
+	relation entity BoundaryConditionsFixtures [
+		from GenerativeDesignOpt
+		to Fixtures
+		forward boundaryConditionsFixtures
+	]
+
+	relation entity BoundaryConditionsGeoConstrains [
+		from GenerativeDesignOpt
+		to GeometricConstraints
+		forward boundaryConditionsGeoConstrains
+	]
+
+	relation entity ManufacturingProcess [
+		from GenerativeDesignOpt
+		to Manufacturing_Process
+		forward manufacturingProcess
+	]
+
+	relation entity ManufacturingINspection [
+		from GenerativeDesignOpt
+		to Inspection
+		forward manufacturingINspection
+	]
+}

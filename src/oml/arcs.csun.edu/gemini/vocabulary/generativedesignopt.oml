@@ -1,47 +1,64 @@
 vocabulary <http://arcs.csun.edu/gemini/vocabulary/generativedesignopt#> as generativedesignopt{
 
-
-
 	extends <http://www.w3.org/2000/01/rdf-schema#> as rdfs
 	
 	@rdfs:label "PreserveGeometry"
     concept PreserveGeometry
+    
     @rdfs:label "ObstacleGeometry"
     concept ObstacleGeometry
+    
     @rdfs:label "ObstacleOffset"
     concept ObstacleOffset
+    
     @rdfs:label "StartingShape"
     concept StartingShape
+	
 	@rdfs:label "Max Stiffness"
 	concept MaximizeStiffness
+    
     @rdfs:label "UnassignedGeometry"
     concept UnassignedGeometry
+    
     @rdfs:label "Body"
     concept Body :> UnassignedGeometry
+    
     @rdfs:label "Objectives"
     concept Objectives
+    
     @rdfs:label "Minimize Mass"
     concept MinimizeMass :> Objectives
+    
     @rdfs:label "Limits"
     concept Limits :> Objectives
+    
     @rdfs:label "TargetSafetyFactor"
     concept TargetSafetyFactor :> Limits
+    
     @rdfs:label "Manufacturing"
     concept Manufacturing
+    
     @rdfs:label "Unrestricted"
     concept Unrestricted :> Manufacturing
+    
     @rdfs:label "Additive"
     concept Additive :> Manufacturing
+    
     @rdfs:label "Milling"
     concept Milling :> Manufacturing
+    
     @rdfs:label "LoadCase"
     concept LoadCase
+    
     @rdfs:label "Loads"
     concept Loads :> LoadCase
+    
     @rdfs:label "Gravity"
     concept Gravity :> Loads
+    
     @rdfs:label "Constraints"
     concept Constraints :> LoadCase
+    
     @rdfs:label "SafetyFactor"
     enumerated scalar SafetyFactor[
     	2.0

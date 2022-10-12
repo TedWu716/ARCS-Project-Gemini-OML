@@ -1,8 +1,8 @@
 /* 
  * Dataset maven coordinates
  */
-ext.title = "OML Template"
-description='The OML template project'
+ext.title = "Gemini"
+description='Mounting bracket generative design model'
 group = 'io.opencaesar.ontologies'
 version = '0.1.0'
 
@@ -35,7 +35,7 @@ ext.dataset = [
     // Root ontology IRI of the dataset
     rootOntologyIri: 'http://arcs.csun.edu/gemini/description/bundle', 
     // URL for publishing dataset documentation
-    publishUrl: 'https://opencaesar.github.io/oml-template'
+    publishUrl: 'https://opencaesar.github.io/gemini'
 ]
 
 /*

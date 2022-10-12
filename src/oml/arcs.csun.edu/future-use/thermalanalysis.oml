@@ -1,4 +1,4 @@
-vocabulary <http://arcs.csun.edu/gemini/vocabulary/thermalanalysis#> as thermalanalysis{
+ vocabulary <http://arcs.csun.edu/gemini/vocabulary/thermalanalysis#> as thermalanalysis{
 
 	extends <http://www.w3.org/2002/07/owl#>
     extends <http://arcs.csun.edu/gemini/vocabulary/foundation#> as foundation
@@ -94,3 +94,4 @@ vocabulary <http://arcs.csun.edu/gemini/vocabulary/thermalanalysis#> as thermala
 	]
 	
 }
+ 

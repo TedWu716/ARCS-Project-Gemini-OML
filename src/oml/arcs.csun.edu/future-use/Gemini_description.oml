@@ -1,13 +1,15 @@
-//@dc:title "Discipline Description"
-
-
-description <http://arcs.csun.edu/gemini/description/description#> as authdescription {
+description <http://arcs.csun.edu/gemini/description/Gemini_description#> as Gemini_description {
 
 	uses <http://arcs.csun.edu/gemini/vocabulary/mountingbracket#> as mountingbracket
-	uses <http://arcs.csun.edu/gemini/vocabulary/topologyopt#> as topologyopt
-	uses <http://arcs.csun.edu/gemini/vocabulary/thermalanalysis#> as thermalanalysis
+	uses <http://arcs.csun.edu/gemini/vocabulary/topologyopt#> as topologyopt	
 	uses <http://arcs.csun.edu/gemini/vocabulary/disciplinevocabularies#> as disciplinevocabularies
+	uses <http://arcs.csun.edu/gemini/vocabulary/generativedesignopt#> as generativedesignopt
+	
+	//Future use for thermal analysis
+	//uses <http://arcs.csun.edu/gemini/vocabulary/thermalanalysis#> as thermalanalysis
+	
 	uses <http://www.w3.org/2000/01/rdf-schema#> as rdfs
+	
 
 	//@rdfs:label to optimize extending the file on query
 	@rdfs:label "Mounting Bracket" 
@@ -17,12 +19,13 @@ description <http://arcs.csun.edu/gemini/description/description#> as authdescri
 	@rdfs:label "Generative Design Optimization"
 	ci GenerativeDesignOptimization : disciplinevocabularies:GenerativeDesignOptimization
 	ri R2[
-		from authdescription:MountingBracket
-		to authdescription:GenerativeDesignOptimization
+		from Gemini_description:MountingBracket
+		to Gemini_description:GenerativeDesignOptimization
 	]
+	
 	ri R3 [
-		from authdescription:MountingBracket
-		to authdescription:TopologyOptimization
+		from Gemini_description:MountingBracket
+		to Gemini_description:TopologyOptimization
 	]
 	
 	@rdfs:label "Static Load"
@@ -63,71 +66,75 @@ description <http://arcs.csun.edu/gemini/description/description#> as authdescri
 		disciplinevocabularies:YoungModulus6061 "test"
 		disciplinevocabularies:PoissonRatio6061 2.22
 		disciplinevocabularies:Density6061 111
-
 	]
 	
 //The enumerated scalars "LimitFactorOfSafety", etc. need to be defined in generativedesignon.oml in order to use these	
-//	@rdfs:label "Minimize Mass"
-//	ci MinimizeMass : generativedesignopt:MinimizeMass[
-//		generativedesignopt:LimitFactorOfSafety "Test"
-//	]
-//	@rdfs:label "Max Stiffness"
-//	ci MaxStiffness : generativedesignopt:MaximizeStiffness[
+	@rdfs:label "Minimize Mass"
+	ci MinimizeMass : generativedesignopt:MinimizeMass[
+		//:LimitFactorOfSafety "Test"
+	]
+	
+	@rdfs:label "Max Stiffness"
+	ci MaxStiffness : generativedesignopt:MaximizeStiffness[
 //		generativedesignopt:Limit1FactorOfSafety "Test"
 //		generativedesignopt:Limit2MassTarget "Test"
-//	]
+    ]
+	
 	@rdfs:label "Method"
 	ci Method : disciplinevocabularies:Method[
 		disciplinevocabularies:AdditiveManufacturing "test"
 	]
-//	@dc:title "Generative Design Optimization Concept Instance relation"
-//	@dc:^description "Connect two concept instance through the relation"
+	@rdfs:label "BoundaryCond"
 	ri BoundaryCond : disciplinevocabularies:BoundaryConditions[
-		from authdescription:GenerativeDesignOptimization
-		to authdescription:StaticLoad
+		from Gemini_description:GenerativeDesignOptimization
+		to Gemini_description:StaticLoad
 	]
+	
+	@rdfs:label "BonudayCondFixtures"
 	ri BoundaryCondFixtures : disciplinevocabularies:BoundaryConditions[
-		from authdescription:GenerativeDesignOptimization
-		to authdescription:Fixtures
+		from Gemini_description:GenerativeDesignOptimization
+		to Gemini_description:Fixtures
 	]
 	ri BoundaryCondRepresentativeLoad : disciplinevocabularies:BoundaryCondRepresentative[
-		from authdescription:GenerativeDesignOptimization
+		from Gemini_description:GenerativeDesignOptimization
 		to RepresentativeLoad
 	]
 	ri Body : disciplinevocabularies:Body[
-		from authdescription:GenerativeDesignOptimization
-		to authdescription:Geometry
+		from Gemini_description:GenerativeDesignOptimization
+		to Gemini_description:Geometry
 	]
+	
 	ri Material : disciplinevocabularies:Material[
-		from authdescription:GenerativeDesignOptimization
-		to authdescription:Ti6a4v
+		from Gemini_description:GenerativeDesignOptimization
+		to Gemini_description:Ti6a4v
 	]
+	
 	ri MaterialAl6061 : disciplinevocabularies:MaterialAl6061[
-		from authdescription:GenerativeDesignOptimization
-		to authdescription:Al6061
+		from Gemini_description:GenerativeDesignOptimization
+		to Gemini_description:Al6061
 	]
 	
 //Cannot have these relations without defining the "MinimizeMass" or "MaxStiffness" first 	
 	ri Objective : disciplinevocabularies:Objective[
-		from authdescription:GenerativeDesignOptimization
-		to authdescription:MinimizeMass
+		from Gemini_description:GenerativeDesignOptimization
+		to Gemini_description:MinimizeMass
 	]
 	ri ObjectiveStiffness : disciplinevocabularies:ObjectiveMaxStiffness[
-		from authdescription:GenerativeDesignOptimization
-		to authdescription:MaxizeStiffness
+		from Gemini_description:GenerativeDesignOptimization
+		to Gemini_description:MaxStiffness
 	]
 	ri Manufacturing : disciplinevocabularies:Manufacturing[
-		from authdescription:GenerativeDesignOptimization
-		to authdescription:Method
+		from Gemini_description:GenerativeDesignOptimization
+		to Gemini_description:Method
 	]
 
 	//******************************************separate line**********************************************************************
-//	@dc:title "Mounting Bracket Concept Instance"
-//	
-	@rdfs:label "Heat Loss" 
-	ci HeatLoss : thermalanalysis:HeatLoss[
-		thermalanalysis:HeatTransThroughMounts 111
-	]
+    //	Future use for thermal analysis
+
+    //	@rdfs:label "Heat Loss" 
+    //	ci HeatLoss : thermalanalysis:HeatLoss[
+    //		thermalanalysis:HeatTransThroughMounts 111
+    //	]
 	
 	//******************************************separate line**********************************************************************
 	//@dc:title "Topology Optimization Concept Instance"
@@ -143,7 +150,7 @@ description <http://arcs.csun.edu/gemini/description/description#> as authdescri
 		topologyopt:LoadMagnitude 222
 	]
 	
-//concept instances MUST be renamed separate from the concept name
+    //concept instances MUST be renamed separate from the concept name
 	@rdfs:label "Fixtures"
 	ci topoFixtures : topologyopt:Fixtures[
 		topologyopt:DegreesOfFreedom "Test Message"
@@ -178,32 +185,32 @@ description <http://arcs.csun.edu/gemini/description/description#> as authdescri
 	]
 	//constant instance relation topology opt
 	ri TopoBody : topologyopt:Body[
-		from authdescription:TopologyOptimization
-		to authdescription:TopoGeometry
+		from Gemini_description:TopologyOptimization
+		to Gemini_description:TopoGeometry
 	]
 	ri TopoBoundaryCond : topologyopt:TopoLoadCon [
-		from authdescription:TopologyOptimization
-		to authdescription:Load
+		from Gemini_description:TopologyOptimization
+		to Gemini_description:Load
 	]
 	ri TopoBoundaryCondFixtures : topologyopt:BoundaryCond[
 		from TopologyOptimization
 		to topoFixtures
 	]
 	ri TopoMaterial : topologyopt:Material[
-		from authdescription:TopologyOptimization
-		to authdescription:topoTi6a4v
+		from Gemini_description:TopologyOptimization
+		to Gemini_description:topoTi6a4v
 	]
 	ri TopoMaterial6061 : topologyopt:MaterialAl6061[
-		from authdescription:TopologyOptimization
-		to authdescription:topoAl6061
+		from Gemini_description:TopologyOptimization
+		to Gemini_description:topoAl6061
 	]
 	ri TopoObjective : topologyopt:ObjectiveMinMass [
-		from authdescription:TopologyOptimization
-		to authdescription:topoMinMass
+		from Gemini_description:TopologyOptimization
+		to Gemini_description:topoMinMass
 	]
 	ri TopoObjectiveStiffness : topologyopt:ObjectiveStiffness[
-		from authdescription:TopologyOptimization
-		to authdescription:topoMaxStiffness
+		from Gemini_description:TopologyOptimization
+		to Gemini_description:topoMaxStiffness
 	]
 	ri TopoObjFrequency : topologyopt:ObjectiveFrequency[
 		from TopologyOptimization

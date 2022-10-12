@@ -1,0 +1,133 @@
+description <http://arcs.csun.edu/gemini/description/generative_design_description#> as desc {
+	
+	uses <http://arcs.csun.edu/gemini/vocabulary/generative_design#> as generative_design
+	uses <http://arcs.csun.edu/gemini/vocabulary/disciplinevocabularies#> as disciplinevocabularies
+	
+	//Future use for thermal analysis
+	//uses <http://arcs.csun.edu/gemini/vocabulary/thermalanalysis#> as thermalanalysis
+	
+	ci GenerativeDesignOfOptimization : generative_design:GenerativeDesignOpt
+	
+	ci Material : generative_design:Material[
+		generative_design:MaterialType " "
+	]
+	
+	/* Static Load */
+//	ci StaticLoad : generative_design:StaticLoad[
+//		generative_design:DirectionStaticLoad ""
+//		generative_design:MagnitudeStaticLoad ""
+//	]
+	ci StaticLoad : disciplinevocabularies:StaticLoad[
+				disciplinevocabularies:Magnitude "Sample: 2000"
+				disciplinevocabularies:Direction "Sample: X"
+	]
+	
+	ci RepresentativeLoad : generative_design:RepresentativeLoad[
+		generative_design:DirectionRepreLoad ""
+		generative_design:MagnitudeRepreLoad ""
+	]
+	
+	ci Fixtures : generative_design:Fixtures[
+		generative_design:DegreeofFredom ""
+		generative_design:Units ""
+	]
+	
+	ci GeometricConstrains : generative_design:GeometricConstraints[
+		generative_design:Obstacle ""
+		generative_design:Preserve ""
+		generative_design:OptimizedSpace ""
+	]
+	
+	ci Processes : generative_design:Manufacturing_Process[
+		generative_design:AdditiveManufacturing ""
+	]
+	
+	ci Inspection : generative_design:Inspection[
+		generative_design:Roughness ""
+		generative_design:Tolerance ""
+	]
+	
+	ri Materials : generative_design:Materials[
+		from GenerativeDesignOfOptimization
+		to Material
+	]
+	
+	ri BoundaryStaticLoad : generative_design:BoundaryConditions[
+		from GenerativeDesignOfOptimization
+		to StaticLoad
+	]
+	
+	ri BoundaryRepresentativeLoad : generative_design:BoundaryConditionsRepreLoad[
+		from GenerativeDesignOfOptimization
+		to RepresentativeLoad
+	]
+	
+	ri BoundaryFixtures : generative_design:BoundaryConditionsFixtures[
+		from GenerativeDesignOfOptimization
+		to Fixtures
+	]
+	
+	ri BoundaryGeomatric : generative_design:BoundaryConditionsGeoConstrains[
+		from GenerativeDesignOfOptimization
+		to GeometricConstrains
+	]
+	
+	ri Manufacturing : generative_design:ManufacturingProcess[
+		from GenerativeDesignOfOptimization
+		to Processes
+	]
+	
+	ri ManufacturingInspection : generative_design:ManufacturingINspection[
+		from GenerativeDesignOfOptimization
+		to Inspection
+	]
+	
+	/* Filter element for future use:
+	 * ci Filter1 : generative_design:Filter
+	 */
+	
+	/* =========================================================================
+	 * Future use for thermal analysis
+	
+	ci ThermalAnalysis : thermalanalysis:Thermal
+	
+	ci ThermalLoads : thermalanalysis:ThermalLoads[
+		thermalanalysis:TrackerTemp ""
+		thermalanalysis:MountsTemp ""
+	]
+	
+	ci ThermolasticPointingDeviation : thermalanalysis:ThermoelasticPointingDev[
+		thermalanalysis:Centerline ""
+	]
+	
+	ci HeatLoss : thermalanalysis:HeatLoss[
+		thermalanalysis:HeatTransThroughMounts ""
+	]
+	
+	ci ThermalMaterial : thermalanalysis:Material[
+		thermalanalysis:MaterialType ""
+		thermalanalysis:ThermalConductivity""
+		thermalanalysis:ThermalDisfusivity ""
+	]
+	
+	ri LoadingCondition : thermalanalysis:LoadingConditions[
+		from ThermalAnalysis
+		to ThermalLoads
+	]
+	
+	ri DesignRequir : thermalanalysis:DesignRequirements[
+		from ThermalAnalysis
+		to ThermolasticPointingDeviation
+	]
+	
+	ri DesignRequirHeatLoss : thermalanalysis:DesignRequirementsHeatLoss[
+		from ThermalAnalysis
+		to HeatLoss
+	]
+	
+	ri MaterialThermal : thermalanalysis:Materials[
+		from ThermalAnalysis
+		to ThermalMaterial
+	] 
+	=========================================================================== */
+}

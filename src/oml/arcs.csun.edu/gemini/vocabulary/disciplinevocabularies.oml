@@ -1,16 +1,10 @@
-//@dc:title "Discipline Vocabularies"
 vocabulary <http://arcs.csun.edu/gemini/vocabulary/disciplinevocabularies#> as disciplinevocabularies{
-   
-//    extends <http://imce.jpl.nasa.gov/foundation/project#>  as project
-//    extends <http://imce.jpl.nasa.gov/foundation/base#> as base
-//    extends <http://imce.jpl.nasa.gov/foundation/mission#> as mission
-//    extends <http://imce.jpl.nasa.gov/foundation/analysis#> as analysis
     
     //start point
     extends <http://www.w3.org/2000/01/rdf-schema#> as rdfs
     extends <http://www.w3.org/2001/XMLSchema#> as xsd
 
-	extends <http://arcs.csun.edu/gemini/vocabulary/alternativedesignsofmountingbracket#> as alternativedesignsofmountingbracket
+	extends <http://arcs.csun.edu/gemini/vocabulary/generative_design#> as generative_design
 
 	@rdfs:label "Mounting Bracket"
 	concept MountingBracket
@@ -24,12 +18,17 @@ vocabulary <http://arcs.csun.edu/gemini/vocabulary/disciplinevocabularies#> as d
         to TopologyOptimization
         forward r3
     ]
-     relation entity R4[
+    
+  /*    Thermal Analysis for future use
+   
+        relation entity R4[
         from MountingBracket
         to ThermalAnalysis
         forward r4
-    ]
-//    @dc:title "Generative Design Optimization"
+   ]
+  */
+    
+    // "Generative Design Optimization"
 	@rdfs:label "Generative Design Optimization"
     concept GenerativeDesignOptimization :> MountingBracket
     @rdfs:label "StaticLoad"
@@ -67,7 +66,7 @@ vocabulary <http://arcs.csun.edu/gemini/vocabulary/disciplinevocabularies#> as d
     @rdfs:label "Static Load"
     scalar property Magnitude[
         domain StaticLoad
-        range xsd:double
+        range xsd:string
     ]
     @rdfs:label "Direction"
     scalar property Direction[
@@ -229,7 +228,7 @@ vocabulary <http://arcs.csun.edu/gemini/vocabulary/disciplinevocabularies#> as d
     ]
     relation entity ManufacturingInspection[
         from GenerativeDesignOptimization
-        to alternativedesignsofmountingbracket:Inspection
+        to generative_design:Inspection
         forward manufacturingInspection
     ]
     relation entity Objective[
@@ -244,53 +243,54 @@ vocabulary <http://arcs.csun.edu/gemini/vocabulary/disciplinevocabularies#> as d
     ]
     /*****************************************************************************************************/
     /**********************************separate line*****************************************************/
-//    @dc:title "Mounting Bracket"
-	@rdfs:label "ThermalAnalysis"
-	// Not sure why ThermalAnaylsis is inheriting from MountingBracket when both are concepts
-    concept ThermalAnalysis :> MountingBracket
-    @rdfs:label "Thermal Loads"
-    concept ThermalLoads
-    @rdfs:label "Thermoelastic Pointing Deviation"
-    concept ThermoelasticPointingDev
-    @rdfs:label "HeatLoss"
-    concept HeatLoss
-    //Mounting Bracket Property
-    @rdfs:label "Tracker Temp"
-    scalar property TrackerTemp[
-        domain ThermalLoads
-        range xsd:float
-    ]
-    @rdfs:label "Mounts Temp"
-    scalar property MountsTemp[
-        domain ThermalLoads
-        range xsd:float
-    ]
-    @rdfs:label "Centerline Position"
-    scalar property CenterlinePosi[
-        domain ThermoelasticPointingDev
-        range xsd:string
-    ]
-    @rdfs:label "Heat Transfer Through Mounts"
-    scalar property HeatTransThroughMounts[
-        domain HeatLoss
-        range xsd:string
-    ]
-    //Mounting Bracket Relation
-    relation entity LoadingCond[
-        from ThermalAnalysis
-        to ThermalLoads
-        forward loadingCond
-    ]
-    relation entity DesignReq[
-        from ThermalAnalysis
-        to ThermoelasticPointingDev
-        forward designReq
-    ]
-    relation entity DesignReqHeatLoss[
-        from ThermalAnalysis
-        to HeatLoss
-        forward designReqHeatLoss
-    ]
+	//Thermal Analysis commented for future use
+	
+//	  @rdfs:label "ThermalAnalysis"
+//	  // Not sure why ThermalAnaylsis is inheriting from MountingBracket when both are concepts
+//    concept ThermalAnalysis :> MountingBracket
+//    @rdfs:label "Thermal Loads"
+//    concept ThermalLoads
+//    @rdfs:label "Thermoelastic Pointing Deviation"
+//    concept ThermoelasticPointingDev
+//    @rdfs:label "HeatLoss"
+//    concept HeatLoss
+//    //Mounting Bracket Property
+//    @rdfs:label "Tracker Temp"
+//    scalar property TrackerTemp[
+//        domain ThermalLoads
+//        range xsd:float
+//    ]
+//    @rdfs:label "Mounts Temp"
+//    scalar property MountsTemp[
+//        domain ThermalLoads
+//        range xsd:float
+//    ]
+//    @rdfs:label "Centerline Position"
+//    scalar property CenterlinePosi[
+//        domain ThermoelasticPointingDev
+//        range xsd:string
+//    ]
+//    @rdfs:label "Heat Transfer Through Mounts"
+//    scalar property HeatTransThroughMounts[
+//        domain HeatLoss
+//        range xsd:string
+//    ]
+//    //Mounting Bracket Relation
+//    relation entity LoadingCond[
+//        from ThermalAnalysis
+//        to ThermalLoads
+//        forward loadingCond
+//    ]
+//    relation entity DesignReq[
+//        from ThermalAnalysis
+//        to ThermoelasticPointingDev
+//        forward designReq
+//    ]
+//    relation entity DesignReqHeatLoss[
+//        from ThermalAnalysis
+//        to HeatLoss
+//        forward designReqHeatLoss
+//    ]
 
     /*****************************************************************************************************/
     /**********************************separate line*****************************************************/
@@ -386,6 +386,7 @@ vocabulary <http://arcs.csun.edu/gemini/vocabulary/disciplinevocabularies#> as d
         to TopologyOptimization
         forward boundaryCond
     ]
+    
      /*****************************************************************************************************/
     /**********************************separate line*****************************************************/
     // general requirement
