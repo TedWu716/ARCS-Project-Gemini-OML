@@ -63,16 +63,19 @@ vocabulary <http://arcs.csun.edu/gemini/vocabulary/generativedesignopt#> as gene
     enumerated scalar SafetyFactor[
     	2.0
     ]
+    
     @rdfs:label "Visibility"
     enumerated scalar Visibility[
     	"yes",
     	"no"
     ]
+    
     @rdfs:label "Status"
     enumerated scalar Status[
     	"on",
     	"off"
     ]
+    
     @rdfs:label "Materials"
     enumerated scalar Materials[
     	"Aluminum AlSi10Mg",
@@ -84,66 +87,79 @@ vocabulary <http://arcs.csun.edu/gemini/vocabulary/generativedesignopt#> as gene
   		"StainlessSteelAISI304",
   		"Tianium6Al-4V"
     ]
+    
     @rdfs:label "LoadCaseStatus"
     scalar property LoadCaseStatus[
     	domain LoadCase
     	range Status
     ]
+    
     @rdfs:label "LoadStatus"
     scalar property LoadStatus[
     	domain Loads
     	range Status
     ]
+    
     @rdfs:label "GravityStatus"
     scalar property GravityStatus[
     	domain Gravity
     	range Status
     ]
+    
     @rdfs:label "ConstraintsStatus"
     scalar property ConstraintsStatus[
     	domain Constraints
     	range Status
     ]
+    
     @rdfs:label "UnrestrictedMaterial"
     scalar property UnrestrictedMaterial[
     	domain Unrestricted
     	range Materials
     ]
+    
     @rdfs:label "AdditivedMaterial"
     scalar property AdditivedMaterial[
     	domain Additive
     	range Materials
     ]
+    
     @rdfs:label "MillingMaterial"
     scalar property MillingMaterial[
     	domain Milling
     	range Materials
     ]
+    
     @rdfs:label "isTargetSafetyFactor"
     scalar property isTargetSafetyFactor[
     	domain TargetSafetyFactor
     	range SafetyFactor
     ]
+    
     @rdfs:label "isVisiblePreserveGeo"
     scalar property isVisiblePreserveGeo[
     	domain PreserveGeometry
     	range Visibility
     ]
+    
     @rdfs:label "isVisibleObstacleGeo"
     scalar property isVisibleObstacleGeo[
     	domain ObstacleGeometry
     	range Visibility
     ]
+    
     @rdfs:label "isVisibleObstacleOffset"
     scalar property isVisibleObstacleOffset[
     	domain ObstacleOffset
     	range Visibility
     ]
+    
     @rdfs:label "isVisibleStartingShape"
     scalar property isVisibleStartingShape[
     	domain StartingShape
     	range Visibility
     ]
+    
     @rdfs:label "isVisibleUnassignedGeometry"
     scalar property isVisibleUnassignedGeometry[
     	domain UnassignedGeometry

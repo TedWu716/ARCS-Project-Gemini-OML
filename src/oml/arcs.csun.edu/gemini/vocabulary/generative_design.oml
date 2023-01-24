@@ -21,7 +21,6 @@ vocabulary <http://arcs.csun.edu/gemini/vocabulary/generative_design#> as genera
 		range xsd:string
 	]
 
-
 	//Static Load
 	scalar property DirectionStaticLoad [
 		domain StaticLoad
@@ -45,9 +44,9 @@ vocabulary <http://arcs.csun.edu/gemini/vocabulary/generative_design#> as genera
 	]
 
 	//Fixtures
-	scalar property DegreeofFredom [
+	scalar property DegreeofFreedom [
 		domain Fixtures
-		range xsd:double
+		range xsd:string
 	]
 
 	scalar property Units [

@@ -1,5 +1,6 @@
 vocabulary <http://arcs.csun.edu/gemini/vocabulary/foundation#> as foundationvocabularies{
 	
+	//sparql query use
 	aspect Element
 	aspect Assembly :> Element
 	aspect Optimization :> Element

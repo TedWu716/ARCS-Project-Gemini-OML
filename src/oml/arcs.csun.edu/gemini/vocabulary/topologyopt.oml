@@ -26,6 +26,8 @@ vocabulary <http://arcs.csun.edu/gemini/vocabulary/topologyopt#> as topologyopt{
     @rdfs:label "Geometry"
     concept Geometry
     
+    /* commented thermal analysis for future use */
+    
     //Topology Optimization Property
     @rdfs:label "Status"
     scalar property Status[
@@ -82,6 +84,8 @@ vocabulary <http://arcs.csun.edu/gemini/vocabulary/topologyopt#> as topologyopt{
         domain Ti6a4v
         range xsd:double
     ]
+    
+    /* 
     @rdfs:label "Thermal Conductivity Ti6a4v"
     scalar property ThermalConductivity6a4v[
         domain Ti6a4v
@@ -92,6 +96,8 @@ vocabulary <http://arcs.csun.edu/gemini/vocabulary/topologyopt#> as topologyopt{
         domain Ti6a4v
         range  xsd:string
     ]
+    */
+    
     @rdfs:label "Young Modulus Al6061"
      scalar property YoungModulus6061[
         domain Al6061
@@ -107,16 +113,22 @@ vocabulary <http://arcs.csun.edu/gemini/vocabulary/topologyopt#> as topologyopt{
         domain Al6061
         range xsd:int
     ]
+    
+    /* 
     @rdfs:label "Thermal Conductivity Al6061"
     scalar property ThermalConductivity6061[
         domain Al6061
         range xsd:string
     ]
+    
     @rdfs:label "Thermal Diffusivity Al6061"
     scalar property ThermalDiffusivity6061[
         domain Al6061
         range  xsd:string
     ]
+    */
+   
+    
     @rdfs:label "Environment"
     scalar property Environment[
         domain Geometry
@@ -135,36 +147,43 @@ vocabulary <http://arcs.csun.edu/gemini/vocabulary/topologyopt#> as topologyopt{
         to Gravity
         forward force
     ]
+    
     relation entity ObjectiveFrequency[
     	from TopologyOptimization
     	to MaxFrequency
     	forward objectiveFrequency
     ]
+    
     relation entity ObjectiveStiffness[
     	from TopologyOptimization
     	to MaxStiffness
     	forward objectiveStiffness
     ]
+    
     relation entity ObjectiveMinMass[
     	from TopologyOptimization
     	to MinMass
     	forward objectiveMinMass
     ]
+    
     relation entity BoundaryCond[
         from TopologyOptimization
         to Fixtures
         forward boundaryCond
     ]
+    
      relation entity Material[
         from TopologyOptimization
         to Ti6a4v
         forward material
     ]
+    
     relation entity MaterialAl6061[
         from TopologyOptimization
         to Al6061
         forward materialAl6061
     ]
+    
     relation entity Body[
         from TopologyOptimization
         to Geometry

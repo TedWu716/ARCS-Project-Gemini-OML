@@ -28,7 +28,7 @@ description <http://arcs.csun.edu/gemini/description/generative_design_descripti
 	]
 	
 	ci Fixtures : generative_design:Fixtures[
-		generative_design:DegreeofFredom ""
+		generative_design:DegreeofFreedom ""
 		generative_design:Units ""
 	]
 	
@@ -40,7 +40,10 @@ description <http://arcs.csun.edu/gemini/description/generative_design_descripti
 	
 	ci Processes : generative_design:Manufacturing_Process[
 		generative_design:AdditiveManufacturing ""
+		generative_design:MillingManufacturing ""
+		generative_design:UnrestrictedManufacturing ""
 	]
+	
 	
 	ci Inspection : generative_design:Inspection[
 		generative_design:Roughness ""
