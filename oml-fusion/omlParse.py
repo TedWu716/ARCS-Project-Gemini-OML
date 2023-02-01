@@ -2,7 +2,7 @@
 if __name__ == "__main__":
     import json
     
-    with open('description.oml', 'r') as file:
+    with open('test_description.oml', 'r') as file:
         lines = file.readlines()
 
         cis = []
@@ -40,5 +40,5 @@ if __name__ == "__main__":
                         concepts[temp_concept][temp_ci][temp_attribute] = temp_value
 
     
-    with open('description.json', 'w', encoding='utf-8') as f:
+    with open('test_description.json', 'w', encoding='utf-8') as f:
         json.dump(concepts, f, ensure_ascii=False, indent=4)
