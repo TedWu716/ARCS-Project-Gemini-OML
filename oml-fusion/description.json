@@ -1,0 +1,45 @@
+{
+    "mountingbracket": {
+        "MountingBracket": {}
+    },
+    "thermalanalysis": {
+        "HeatLoss": {
+            "HeatTransThroughMounts": "111"
+        }
+    },
+    "topologyopt": {
+        "TopologyOptimization": {},
+        "Geometry": {
+            "Environment": "\"Design Space\""
+        },
+        "Load": {
+            "LoadDir": "\"X\"",
+            "LoadMagnitude": "222"
+        },
+        "Fixtures": {
+            "DegreesOfFredom": "\"Test Message\""
+        },
+        "Ti6a4v": {
+            "Yield": "\"Test\"",
+            "Ultimate": "\"test\"",
+            "YoungModulus": "\"test\"",
+            "PoissonRatio": "1.11",
+            "Density": "100.1"
+        },
+        "Al6061": {
+            "YoungModulus": "\"test\"",
+            "PoissonRatio": "2.22",
+            "Density": "111"
+        },
+        "MaxFrequency": {},
+        "MinMass": {
+            "Safety": "\"Test\""
+        },
+        "MaxStiffness": {
+            "PercentTotalVolum": "6.6"
+        },
+        "Gravity": {
+            "Status": "true"
+        }
+    }
+}
